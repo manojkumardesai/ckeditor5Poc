@@ -1,0 +1,14 @@
+<div class="main-container">
+	<div class="editor-container editor-container_document-editor editor-container_include-annotations" #editorContainerElement>
+		<div class="editor-container__menu-bar" #editorMenuBarElement></div>
+		<div class="editor-container__toolbar" #editorToolbarElement></div>
+		<div class="editor-container__editor-wrapper">
+			<div class="editor-container__editor">
+				<div #editorElement>
+					<ckeditor [editor]="Editor" [config]="config" (ready)="onReady($event)" *ngIf="isLayoutReady" />
+				</div>
+			</div>
+			<!-- <div class="editor-container__sidebar" #editorAnnotationsElement></div> -->
+		</div>
+	</div>
+</div>

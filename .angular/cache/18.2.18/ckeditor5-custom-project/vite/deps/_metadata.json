@@ -1,0 +1,70 @@
+{
+  "hash": "1f6509e4",
+  "configHash": "f88dfff8",
+  "lockfileHash": "b3cafea9",
+  "browserHash": "d4d0bde2",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "c982a7ad",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "22e75cb7",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "1c780104",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c568d22c",
+      "needsInterop": false
+    },
+    "@ckeditor/ckeditor5-angular": {
+      "src": "../../../../../../node_modules/@ckeditor/ckeditor5-angular/fesm2022/ckeditor-ckeditor5-angular.mjs",
+      "file": "@ckeditor_ckeditor5-angular.js",
+      "fileHash": "88deb253",
+      "needsInterop": false
+    },
+    "ckeditor5": {
+      "src": "../../../../../../node_modules/ckeditor5/dist/ckeditor5.js",
+      "file": "ckeditor5.js",
+      "fileHash": "a40c33c6",
+      "needsInterop": false
+    },
+    "ckeditor5-premium-features": {
+      "src": "../../../../../../node_modules/ckeditor5-premium-features/dist/ckeditor5-premium-features.js",
+      "file": "ckeditor5-premium-features.js",
+      "fileHash": "782216af",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-J3B25Z5F": {
+      "file": "chunk-J3B25Z5F.js"
+    },
+    "chunk-MJ4K5CM7": {
+      "file": "chunk-MJ4K5CM7.js"
+    },
+    "chunk-3KZSSOBN": {
+      "file": "chunk-3KZSSOBN.js"
+    },
+    "chunk-FHEDGWQX": {
+      "file": "chunk-FHEDGWQX.js"
+    },
+    "chunk-OTNMZIEQ": {
+      "file": "chunk-OTNMZIEQ.js"
+    },
+    "chunk-5KUQ5DVG": {
+      "file": "chunk-5KUQ5DVG.js"
+    }
+  }
+}
