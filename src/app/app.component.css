@@ -95,3 +95,102 @@
 	margin-left: 10px;
 	margin-right: 10px;
 }
+
+/* Cut button icon styling */
+.ck.ck-button.ck-button-cut .ck-button__icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.ck.ck-button.ck-button-cut .ck-button__icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    overflow: visible;
+}
+
+.ck.ck-button.ck-button-cut {
+    padding: var(--ck-spacing-tiny);
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ck-spacing-tiny);
+}
+
+.ck.ck-button.ck-button-cut .ck-button__label {
+    line-height: 20px;
+    margin-left: var(--ck-spacing-tiny);
+}
+
+/* Paste button icon styling */
+.ck.ck-button.ck-button-paste .ck-button__icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.ck.ck-button.ck-button-paste .ck-button__icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    overflow: visible;
+}
+
+.ck.ck-button.ck-button-paste {
+    padding: var(--ck-spacing-tiny);
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ck-spacing-tiny);
+}
+
+.ck.ck-button.ck-button-paste .ck-button__label {
+    line-height: 20px;
+    margin-left: var(--ck-spacing-tiny);
+}
+
+/* Print button icon styling */
+.ck.ck-button.ck-button-print .ck-button__icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.ck.ck-button.ck-button-print .ck-button__icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    overflow: visible;
+}
+
+.ck.ck-button.ck-button-print {
+    padding: var(--ck-spacing-tiny);
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ck-spacing-tiny);
+}
+
+.ck.ck-button.ck-button-print .ck-button__label {
+    line-height: 20px;
+    margin-left: var(--ck-spacing-tiny);
+}
