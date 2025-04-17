@@ -366,12 +366,61 @@ export class AppComponent implements AfterViewInit {
     }
 
     public onReady(editor: DecoupledEditor): void {
+        // Mount toolbar and menu bar
         Array.from(this.editorToolbar.nativeElement.children).forEach(child => child.remove());
         Array.from(this.editorMenuBar.nativeElement.children).forEach(child => child.remove());
 
         this.editorToolbar.nativeElement.appendChild(editor.ui.view.toolbar.element!);
         this.editorMenuBar.nativeElement.appendChild(editor.ui.view.menuBarView.element!);
 
+        // Set editor to read-only mode
+        editor.isReadOnly = true;
+
+        // Configure command enablement based on read-only state
+        const updateCommandsState = () => {
+            // Disable all commands initially
+            Array.from(editor.commands.commands()).forEach((command) => {
+                command.isEnabled = false;
+            });
+
+            // Enable only print and preview commands even in read-only mode
+            const printCommand = editor.commands.get('print');
+            const previewCommand = editor.commands.get('preview');
+            
+            if (printCommand) {
+                printCommand.isEnabled = true;
+            }
+            
+            if (previewCommand) {
+                previewCommand.isEnabled = true;
+            }
+
+            // Update toolbar buttons UI state
+            const toolbarEl = this.editorToolbar.nativeElement;
+            toolbarEl.querySelectorAll('button').forEach((btn: HTMLButtonElement) => {
+                const classes = btn.classList;
+                const isPreview = classes.contains('ck-button-preview');
+                const isPrint = classes.contains('ck-button-print');
+                
+                if (isPreview || isPrint) {
+                    btn.disabled = false;
+                    btn.classList.remove('ck-disabled');
+                } else {
+                    btn.disabled = true;
+                    btn.classList.add('ck-disabled');
+                }
+            });
+        };
+
+        // Initial state setup
+        updateCommandsState();
+
+        // Listen for read-only state changes to update command states
+        editor.on('change:isReadOnly', () => {
+            updateCommandsState();
+        });
+
+        // Persist content on changes
         editor.model.document.on('change:data', () => {
             const data = editor.getData();
             localStorage.setItem('editorContent', data);
