@@ -44,6 +44,7 @@ import {
 import { CutPlugin } from './plugins/cut/cut-plugin';
 import { PastePlugin } from './plugins/paste/paste-plugin';
 import { PrintPlugin } from './plugins/print/print-plugin';
+import { PreviewPlugin } from './plugins/preview/preview-plugin';
 
 const LICENSE_KEY =
 	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU3OTgzOTksImp0aSI6IjFkZDJhMzY2LTllMTYtNDU0MS04ZTFmLWRiYzc4Yjk1MDNmZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjRmZjExZGYwIn0.9toW96DDJOi13kZMM7dfcX84u3LzzbkIcwRRavpDTZKf8Bim_Iz4BKG_Hf1GvTogsTOWXWRkBAETNAB4UjezmA';
@@ -260,6 +261,7 @@ export class AppComponent implements AfterViewInit {
         this.config = {
             toolbar: {
                 items: [
+					'preview',
                     'fullscreen',
                     'undo', 'redo',
                     '|',
@@ -300,7 +302,8 @@ export class AppComponent implements AfterViewInit {
                 TrackChangesPreview,
                 CutPlugin,
                 PastePlugin,
-                PrintPlugin
+                PrintPlugin,
+				PreviewPlugin
             ],
             extraPlugins: [UsersIntegration, CommentsIntegration, TrackChangesIntegration],
             htmlSupport: {
