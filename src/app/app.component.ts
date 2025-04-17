@@ -12,12 +12,14 @@ import {
     Plugin,
     Autoformat,
     Autosave,
+    Bold,
     Emoji,
     Essentials,
     FindAndReplace,
     Fullscreen,
     ImageEditing,
     ImageUtils,
+    Italic,
     Mention,
     Paragraph,
     SpecialCharacters,
@@ -27,7 +29,7 @@ import {
     SpecialCharactersLatin,
     SpecialCharactersMathematical,
     SpecialCharactersText,
-    TextTransformation
+    TextTransformation,
 } from 'ckeditor5';
 import {
     CaseChange,
@@ -270,12 +272,24 @@ export class AppComponent implements AfterViewInit {
                     'heading',
                     '|',
                     'bold',
-                    'italic'
+                    'italic',
+                    '|',
+                    'trackChanges',
+                    'trackChangesPreview',
+                    'trackChangesAcceptAll',
+                    'trackChangesRejectAll',
+                    '|',
+                    'link',
+                    'blockQuote',
+                    'insertTable',
+                    'imageUpload',
+                    'specialCharacters'
                 ]
             },
             plugins: [
                 Autoformat,
                 Autosave,
+                Bold,
                 CaseChange,
                 Comments,
                 Emoji,
@@ -285,6 +299,7 @@ export class AppComponent implements AfterViewInit {
                 Fullscreen,
                 ImageEditing,
                 ImageUtils,
+                Italic,
                 Mention,
                 MergeFields,
                 Paragraph,
@@ -372,53 +387,6 @@ export class AppComponent implements AfterViewInit {
 
         this.editorToolbar.nativeElement.appendChild(editor.ui.view.toolbar.element!);
         this.editorMenuBar.nativeElement.appendChild(editor.ui.view.menuBarView.element!);
-
-        // Set editor to read-only mode
-        editor.isReadOnly = true;
-
-        // Configure command enablement based on read-only state
-        const updateCommandsState = () => {
-            // Disable all commands initially
-            Array.from(editor.commands.commands()).forEach((command) => {
-                command.isEnabled = false;
-            });
-
-            // Enable only print and preview commands even in read-only mode
-            const printCommand = editor.commands.get('print');
-            const previewCommand = editor.commands.get('preview');
-            
-            if (printCommand) {
-                printCommand.isEnabled = true;
-            }
-            
-            if (previewCommand) {
-                previewCommand.isEnabled = true;
-            }
-
-            // Update toolbar buttons UI state
-            const toolbarEl = this.editorToolbar.nativeElement;
-            toolbarEl.querySelectorAll('button').forEach((btn: HTMLButtonElement) => {
-                const classes = btn.classList;
-                const isPreview = classes.contains('ck-button-preview');
-                const isPrint = classes.contains('ck-button-print');
-                
-                if (isPreview || isPrint) {
-                    btn.disabled = false;
-                    btn.classList.remove('ck-disabled');
-                } else {
-                    btn.disabled = true;
-                    btn.classList.add('ck-disabled');
-                }
-            });
-        };
-
-        // Initial state setup
-        updateCommandsState();
-
-        // Listen for read-only state changes to update command states
-        editor.on('change:isReadOnly', () => {
-            updateCommandsState();
-        });
 
         // Persist content on changes
         editor.model.document.on('change:data', () => {
